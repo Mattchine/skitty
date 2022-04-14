@@ -26,7 +26,7 @@ $ npm init @svelte-add/kit@latest
 ```
 2. Add Tauri to your project
 ```bash
-$ cd <you path>
+$ cd <your path>
 $ yarn add -D @tauri-apps/cli
 $ yarn add @tauri-apps/api
 ```
@@ -43,11 +43,11 @@ $ yarn add @tauri-apps/api
 ```
 - 3.2 Add `hook.ts` to `svelte.config.js`
 ```js
-	kit: {
-		files: {
-			hooks: 'src/hooks.ts'
-		}
-	}
+  kit: {
+    files: {
+	    hooks: 'src/hooks.ts'
+	  }
+  }
 ```
 4. Change tauri config `src-tauri/tauri.conf.json`
 - 4.1 Change `devPath` from PORT `8080` PORT `3000`
@@ -72,4 +72,4 @@ $ yarn add @tauri-apps/api
 ## Special Thanks
 - [jsmenzies](https://github.com/jsmenzies)
 - [svelte-add](https://github.com/svelte-add/svelte-add)
-- And, of course, all underlying project: `Svelte`, `SvelteKit`, `Taiilwind`, `Tauri`, etc.
+- And, of course, all underlying project: `Svelte`, `SvelteKit`, `Taiilwind`, `Tauri`, and many mores!.
