@@ -1,8 +1,13 @@
 # Skitty
 Template for building SvelteKit + Tauri (Skitty)
 
+# Warning
+This project is supposed to be used temporary only (until `svelte-add` tauri has finished).
+<B>Consider checking `svlete-add` before continue.</B>
+
 # Table of contents
 - [Skitty](#skitty)
+- [Warning](#warning)
 - [Table of contents](#table-of-contents)
   - [Developing](#developing)
   - [Configure / Step-by-step guide](#configure--step-by-step-guide)
