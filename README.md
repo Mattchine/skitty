@@ -1,40 +1,75 @@
-# create-svelte
+# SvelteKit Tauri template
+Template for building SvelteKit + Tauri (SKT)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
-
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm init svelte@next
-
-# create a new project in my-app
-npm init svelte@next my-app
-```
-
-> Note: the `@next` is temporary
+# Table of contents
+- [SvelteKit Tauri template](#sveltekit-tauri-template)
+- [Table of contents](#table-of-contents)
+  - [Developing](#developing)
+  - [Configure / Step-by-step guide](#configure--step-by-step-guide)
+  - [Notes](#notes)
+  - [Special Thanks](#special-thanks)
 
 ## Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
 ```bash
-npm run dev
+$ git clone https://github.com/Mattchine/sveltekit-tauri-template/tree/master <your path>
+$ cd <your path>
+$ yarn tauri dev
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
 ```
 
-## Building
-
-To create a production version of your app:
-
+## Configure / Step-by-step guide
+1. Create project with [svelte-add](https://github.com/svelte-add/svelte-add)
 ```bash
-npm run build
+$ npm init @svelte-add/kit@latest
+# Follow the prompts to select the integrations you want
+```
+2. Add Tauri to your project
+```bash
+$ cd <you path>
+$ yarn add -D @tauri-apps/cli
+$ yarn add @tauri-apps/api
+```
+3. Disable SvelteKit SSR (I have problem with this for days, thanks to [jsmenzies](https://github.com/cloudflare/workerskv.gui/pull/13))
+
+- 3.1 Create `src/hook.ts`
+```ts
+  /** @type {import('@sveltejs/kit').Handle} */
+  export async function handle({ event, resolve }) {
+    return await resolve(event, {
+      ssr: false
+    });
+  }
+```
+- 3.2 Add `hook.ts` to `svelte.config.js`
+```js
+	kit: {
+		files: {
+			hooks: 'src/hooks.ts'
+		}
+	}
+```
+4. Change tauri config `src-tauri/tauri.conf.json`
+- 4.1 Change `devPath` from PORT `8080` PORT `3000`
+- 4.2 Set `beforeDevCommand` and `beforeBuildCommand`
+```json
+  "build": {
+    "distDir": "../public",
+    "devPath": "http://localhost:3000",
+    "beforeDevCommand": "yarn dev",
+    "beforeBuildCommand": "yarn build"
+  },
 ```
 
-You can preview the production build with `npm run preview`.
+5. Done! now you can run
+```bash
+  $ yarn tauri dev
+```
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+## Notes
+- This repository is for my future self and hope it would help someone out there too.
+
+## Special Thanks
+- [jsmenzies](https://github.com/jsmenzies)
+- [svelte-add](https://github.com/svelte-add/svelte-add)
+- And, of course, all underlying project: `Svelte`, `SvelteKit`, `Taiilwind`, `Tauri`, etc.
