@@ -1,8 +1,8 @@
-# SvelteKit Tauri template
-Template for building SvelteKit + Tauri (SKT)
+# Skitty
+Template for building SvelteKit + Tauri (Skitty)
 
 # Table of contents
-- [SvelteKit Tauri template](#sveltekit-tauri-template)
+- [Skitty](#skitty)
 - [Table of contents](#table-of-contents)
   - [Developing](#developing)
   - [Configure / Step-by-step guide](#configure--step-by-step-guide)
