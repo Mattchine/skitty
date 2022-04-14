@@ -12,7 +12,7 @@ Template for building SvelteKit + Tauri (Skitty)
 ## Developing
 
 ```bash
-$ git clone https://github.com/Mattchine/sveltekit-tauri-template/tree/master <your path>
+$ git clone https://github.com/Mattchine/skitty <your path>
 $ cd <your path>
 $ yarn tauri dev
 
