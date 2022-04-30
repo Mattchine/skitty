@@ -19,6 +19,7 @@ This project is supposed to be used temporary only (until `svelte-add` tauri has
 ```bash
 $ git clone https://github.com/Mattchine/skitty <your path>
 $ cd <your path>
+$ yarn install
 $ yarn tauri dev
 
 ```
@@ -66,10 +67,38 @@ $ yarn add @tauri-apps/api
   },
 ```
 
-5. Done! now you can run
+5. Now you can run
 ```bash
   $ yarn tauri dev
 ```
+
+6. But if you try `yarn tauri build` that won't work right now. We need to fix `distDir`. Again change `src-tauri/tauri.conf.json`
+```json
+  "build": {
+    "distDir": "../build",
+  }
+```
+7. But where is it? Well, you have to tell svelte that you need static-site with adapter static. 
+7.1 Install `adapter-static first
+```bash
+  $ yarn add -D @sveltejs/adapter-static@next
+```
+7.2 Change `svelte.config.js` as follows.
+```js
+  import staticAdapter from '@sveltejs/adapter-static';
+  // ...
+
+	kit: {
+		adapter: staticAdapter(),
+		prerender: {
+			default: true,
+		},
+		files: {
+			hooks: 'src/hooks.ts'
+		}
+	}
+```
+8. Now both `yarn tauri dev` and `yarn tauri build` will works just fine.
 
 ## Notes
 - This repository is for my future self and hope it would help someone out there too.
