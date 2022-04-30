@@ -1,4 +1,5 @@
-import adapter from '@sveltejs/adapter-auto';
+// import adapter from '@sveltejs/adapter-auto';
+import staticAdapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -12,8 +13,10 @@ const config = {
 	],
 
 	kit: {
-		adapter: adapter(),
-
+		adapter: staticAdapter(),
+		prerender: {
+			default: true,
+		},
 		files: {
 			hooks: 'src/hooks.ts'
 		}
