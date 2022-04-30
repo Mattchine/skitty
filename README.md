@@ -2,7 +2,7 @@
 Template for building SvelteKit + Tauri (Skitty)
 
 # Warning
-This project is supposed to be used temporary only (until `svelte-add` tauri has finished).
+This project is supposed to be used temporary only (until `svelte-add` tauri is released).
 <B>Consider checking `svlete-add` before continue.</B>
 
 # Table of contents
@@ -72,18 +72,18 @@ $ yarn add @tauri-apps/api
   $ yarn tauri dev
 ```
 
-6. But if you try `yarn tauri build` that won't work right now. We need to fix `distDir`. Again change `src-tauri/tauri.conf.json`
+6. But if you try `yarn tauri build` , it won't work right now. We need to fix `distDir`. Again, change `src-tauri/tauri.conf.json`
 ```json
   "build": {
     "distDir": "../build",
   }
 ```
-7. But where is it? Well, you have to tell svelte that you need static-site with adapter static. 
-7.1 Install `adapter-static first
+7. But where is `build`? Well, you have to tell svelte that you need static-site with adapter static. 
+- 7.1 Install `adapter-static` first
 ```bash
   $ yarn add -D @sveltejs/adapter-static@next
 ```
-7.2 Change `svelte.config.js` as follows.
+- 7.2 Change `svelte.config.js` as follows.
 ```js
   import staticAdapter from '@sveltejs/adapter-static';
   // ...
