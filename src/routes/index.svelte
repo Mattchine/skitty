@@ -1,6 +1,16 @@
 <script>
   import { invoke } from "@tauri-apps/api";
+
+  let message;
+  $: message;
+
+  function call_tauri() {
+    invoke("called_from_js").then((m) => (message = m));
+  }
 </script>
 
 <h1 class="underline">Welcome to Skitty</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<p>
+  {message}
+  <button on:click={call_tauri}> click me </button>
+</p>

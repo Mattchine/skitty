@@ -38,7 +38,7 @@ $ yarn add @tauri-apps/api
 ```
 3. Disable SvelteKit SSR (I have problem with this for days, thanks to [jsmenzies](https://github.com/cloudflare/workerskv.gui/pull/13))
 
-- 3.1 Create `src/hook.ts`
+- 3.1 Create `src/hooks.ts`
 ```ts
   /** @type {import('@sveltejs/kit').Handle} */
   export async function handle({ event, resolve }) {
@@ -47,7 +47,7 @@ $ yarn add @tauri-apps/api
     });
   }
 ```
-- 3.2 Add `hook.ts` to `svelte.config.js`
+- 3.2 Add `hooks.ts` to `svelte.config.js`
 ```js
   kit: {
     files: {
