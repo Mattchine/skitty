@@ -18,7 +18,7 @@ const config = {
 			default: true,
 		},
 		files: {
-			hooks: 'src/hook.ts'
+			hooks: 'src/hooks/index.ts'
 		}
 	}
 };

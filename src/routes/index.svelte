@@ -1,7 +1,7 @@
 <script>
   import { invoke } from "@tauri-apps/api";
 
-  let message;
+  let message = '';
   $: message;
 
   function call_tauri() {
