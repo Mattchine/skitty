@@ -94,7 +94,7 @@ $ yarn add @tauri-apps/api
 			default: true,
 		},
 		files: {
-			hooks: 'src/hooks.ts'
+			hooks: 'src/hooks/index.ts'
 		}
 	}
 ```
