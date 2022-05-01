@@ -51,7 +51,7 @@ $ yarn add @tauri-apps/api
 ```js
   kit: {
     files: {
-	    hooks: 'src/hooks.ts'
+	    hooks: 'src/hooks/index.ts'
 	  }
   }
 ```
