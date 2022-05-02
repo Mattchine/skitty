@@ -1,7 +1,7 @@
 <script>
   import { invoke } from "@tauri-apps/api";
 
-  let message = '';
+  let message = "";
   $: message;
 
   function call_tauri() {
@@ -10,7 +10,7 @@
 </script>
 
 <h1 class="underline">Welcome to Skitty</h1>
-<p>
+<button class="bg-slate-500" on:click={call_tauri}>Call Tauri</button>
+<div>
   {message}
-  <button on:click={call_tauri}>Call Tauri</button>
-</p>
+</div>
