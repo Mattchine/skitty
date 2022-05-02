@@ -99,6 +99,8 @@ $ yarn add @tauri-apps/api
 	}
 ```
 8. Now both `yarn tauri dev` and `yarn tauri build` will works just fine.
+9. (Optional) Adding path alias, following the instruction in [sveltekit FAQ](https://kit.svelte.dev/faq#aliases).
+- As you can see in the template you can use `import '$styles/app.css'` or any other path alias
 
 ## Notes
 - This repository is for my future self and hope it would help someone out there too.

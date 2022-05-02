@@ -1,6 +1,7 @@
 // import adapter from '@sveltejs/adapter-auto';
 import staticAdapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
+import path from 'path'
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -19,6 +20,13 @@ const config = {
 		},
 		files: {
 			hooks: 'src/hooks/index.ts'
+		},
+		vite: {
+			resolve: {
+				alias: {
+					$styles: path.resolve('./src/styles')
+				}
+			}
 		}
 	}
 };
