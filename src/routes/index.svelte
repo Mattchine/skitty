@@ -12,5 +12,5 @@
 <h1 class="underline">Welcome to Skitty</h1>
 <p>
   {message}
-  <button on:click={call_tauri}> click me </button>
+  <button on:click={call_tauri}>Call Tauri</button>
 </p>

@@ -38,7 +38,7 @@ $ yarn add @tauri-apps/api
 ```
 3. Disable SvelteKit SSR (I have problem with this for days, thanks to [jsmenzies](https://github.com/cloudflare/workerskv.gui/pull/13))
 
-- 3.1 Create `src/hooks.ts`
+- 3.1 Create `src/hooks/index.ts`
 ```ts
   /** @type {import('@sveltejs/kit').Handle} */
   export async function handle({ event, resolve }) {
@@ -47,7 +47,7 @@ $ yarn add @tauri-apps/api
     });
   }
 ```
-- 3.2 Add `hooks.ts` to `svelte.config.js`
+- 3.2 Add `hooks/index.ts` to `svelte.config.js`
 ```js
   kit: {
     files: {
@@ -56,7 +56,7 @@ $ yarn add @tauri-apps/api
   }
 ```
 4. Change tauri config `src-tauri/tauri.conf.json`
-- 4.1 Change `devPath` from PORT `8080` PORT `3000`
+- 4.1 Change `devPath` from PORT `8080` to `3000`
 - 4.2 Set `beforeDevCommand` and `beforeBuildCommand`
 ```json
   "build": {
